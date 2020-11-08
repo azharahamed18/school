@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            
+                <div class="col-md-4">
+               <h2>Add Result</h2>
+               <form>
+                   <div class="form-group">
+                       <label for="id">Id</label>
+                       <input type="text" class="form-control" id="id" #id>
+                   </div>
+                   <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" #name>
+                </div>
+                <div class="form-group">
+                    <label for="english">English Language & Literature</label>
+                    <input type="text" class="form-control" id="english" #english>
+                </div>
+                <div class="form-group">
+                    <label for="sclanguage">Seconed Language</label>
+                    <input type="text" class="form-control" id="sclanguage" #sclanguage>
+                </div>
+                <div class="form-group">
+                    <label for="mark">Seconed Language Mark</label>
+                    <input type="text" class="form-control" id="mark" #mark>
+                </div>
+                <div class="form-group">
+                    <label for="maths">Mathematics</label>
+                    <input type="text" class="form-control" id="maths" #maths>
+                </div>
+                <div class="form-group">
+                    <label for="science">Science</label>
+                    <input type="text" class="form-control" id="science" #science>
+                </div>
+                <div class="form-group">
+                    <label for="ss">Social Science</label>
+                    <input type="text" class="form-control" id="ss" #ss>
+                </div>
+
+                <button type="button" class="btn btn-primary " (click)="onAddProducts(id,name,english,sclanguage,mark,maths,science,ss)">{{editMode? 'Update product':'Add Products'}}</button>
+                <button type="button" class="btn btn-success mx-2 " (click)="onSaveProducts()">Save Products</button>
+                <button type="button" class="btn btn-warning " (click)="onFetchProducts()">Fetch Products</button>
+                <div class="row mt-4">
+                    <a href="#" routerLink="/manage-user" class = 'btn btn-success ml-auto'>Add user</a>
+                </div>
+            </form>
+                </div>
+                <div class="col-md-8">
+                    <h2>{{dataTitle}}</h2> 
+                    <h3>{{stid}}</h3>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">id</th>
+                                <th scope="col">name</th>
+                                <th scope="col">English</th>
+                                <th scope="col">2nd Language</th>
+                                <th scope="col">Maths</th>
+                                <th scope="col">Science</th>
+                                <th scope="col">SS</th>
+     
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products; index as i ">
+                             <th scope="row">{{i+1}}</th>
+                             <td>{{product.id}}</td>
+                             <td>{{product.name}}</td>
+                               
+                             <td>{{product.english}}</td>
+                             <td>{{product.mark}}</td>
+                             <td>{{product.maths}}</td>
+                             <td>{{product.science}}</td>
+                             <td>{{product.ss}}</td>
+                             <td (click)="onEditproduct(i)"><a class="text-danger"><i class="fa fa-edit"></i></a></td>
+                             <td (click)="onDeleteproduct(i)" ><a class="text-danger"><i class="fa fa-trash-o fa-alt"></i></a></td>
+                            </tr>
+                        </tbody >
+                    </table>
+                    <div *ngIf="fetching" class="text-center">
+                        <div class="spinner-border text-warning" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div> Fetching Product</div>
+                 </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            
+                <div class="col-md-6">
+               <h2>Add User</h2>
+               <form userForm="ngForm" (ngSubmit) = "onAddUser(userForm.value)">
+                   <div class="form-group">
+                       <label for="id">Product Id</label>
+                       <input type="text" class="form-control" name="name" ngmodel required>
+                   </div>
+                   <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" class="form-control" name="technology" ngmodel required>
+                </div>
+                
+                <button type="button" class="btn btn-primary " >add user</button>
+                <button type="button" class="btn btn-success mx-2 " >Save Products</button>
+                
+                <div class="row mt-4">
+                    <a href="#" routerLink="/manage-user" class = 'btn btn-success ml-auto'>Add user</a>
+                </div>
+            </form>
+                </div>
+                <div class="col-md-6">
+                    <h2>User title</h2> 
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                
+                                <th scope="col">name</th>
+                                <th scope="col">Technology</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+     
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                             <th scope="row"></th>
+                             <td>{{user.name}}</td>
+                             <td>{{user.technology}}</td>
+                             <td class="text-center" ><a class="text-danger"><i class="fa fa-edit"></i></a></td>
+                             <td class="text-center" ><a class="text-danger"><i class="fa fa-trash-o fa-alt"></i></a></td> 
+                         
+                             
+                            </tr>
+                        </tbody >
+                    </table>
+                   
+                 </div>
+        </div>
+    </div>
+</section>
+
